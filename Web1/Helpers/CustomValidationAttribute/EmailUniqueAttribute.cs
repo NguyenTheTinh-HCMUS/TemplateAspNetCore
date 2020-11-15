@@ -15,7 +15,7 @@ namespace Web1.Helpers.CustomValidationAttribute
         if (value != null)
         {
             var _context = (DataContext)validationContext.GetService(typeof(DataContext));
-            var entity = _context.Employees.SingleOrDefault(e => e.Email == value.ToString());
+            var entity = _context.Employees.SingleOrDefault(e => e.Email == value.ToString() || e.Username == value.ToString());
 
             if (entity != null)
             {

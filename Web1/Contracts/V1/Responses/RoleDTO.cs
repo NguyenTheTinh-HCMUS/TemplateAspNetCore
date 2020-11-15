@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Web1.Domain
+namespace Web1.Contracts.V1.Responses
 {
-    public class Role
+    public class RoleDTO
     {
         public int RoleId { set; get; }
         public string RoleName { set; get; }
         public bool Status { set; get; }
-        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

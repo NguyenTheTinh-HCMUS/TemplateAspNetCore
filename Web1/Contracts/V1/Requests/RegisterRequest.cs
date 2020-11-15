@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Web1.Helpers.CustomValidationAttribute;
 
-namespace Web1.Domain
+namespace Web1.Contracts.V1.Requests
 {
-    public class Employee
+    public class RegisterRequest
     {
-        public int EmployeeId { get; set; }
         public string FullName { get; set; }
+        [EmailUnique]
+        [EmailMatch]
         public string Email { get; set; }
+        [UsernameUnique]
         public string Username { get; set; }
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
@@ -21,18 +23,10 @@ namespace Web1.Domain
         public DateTime? DateOfBirth { get; set; } = null;
         public string PhoneNumber { get; set; }
         public string Gender { get; set; }
-        public string PasswordHash { get; set; }
+        //[PasswordPolicy]
+        public string Password { get; set; }
         public string AvatarUrl { get; set; }
         public int RoleID { get; set; }
         public int DepartmentId { get; set; }
-
-        [ForeignKey(nameof(RoleID))]
-        public virtual Role Role { set; get; }
-
-
-        [ForeignKey(nameof(DepartmentId))]
-        public virtual Department   Department { set; get; }
-        public virtual ICollection<RefreshToken> RefreshTokens { get; set; }
-
     }
 }

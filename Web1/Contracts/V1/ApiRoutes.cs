@@ -25,5 +25,27 @@ namespace Web1.Contracts.V1
 
             public const string Create = Base + "/test";
         }
+        public static class Department
+        {
+            public const string GetAll = Base + "/department";
+
+            public const string Update = Base + "/department/{departmentId}";
+
+            public const string Delete = Base + "/department/{departmentId}";
+
+            public const string Get = Base + "/department/{departmentId}";
+
+            public const string Create = Base + "/department";
+        }
+        public static class Auth
+        {
+            public const string Login = Base + "/auth/login";
+
+            public const string Register = Base + "/auth/register";
+
+            public const string RefreshToken = Base + "/auth/refresh-token";
+
+           
+        }
     }
 }
